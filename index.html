@@ -512,13 +512,10 @@ function renderPlayers(){
 /* ---------- Teams view ---------- */
 function renderTeams(){
   const v=document.getElementById("view");
-  const arr=[...ALL_TEAMS].sort((a,b)=>{
-    if(teamSort.key==="name")return a.name.localeCompare(b.name)*teamSort.dir;
-    return (totals(a)[teamSort.key]-totals(b)[teamSort.key])*teamSort.dir;
-  });
+  const arr=[...ALL_TEAMS].sort((a,b)=>a.name.localeCompare(b.name));
   const head=`<thead><tr>
-    <th class="l" data-s="name">Team</th>
-    <th data-s="gf">GF</th><th data-s="ga">GA</th><th data-s="yc">YC</th><th data-s="rc">RC</th>
+    <th class="l">Team</th>
+    <th>GF</th><th>GA</th><th>YC</th><th>RC</th>
   </tr></thead>`;
   const body=arr.map(t=>{const s=totals(t);
     const cell=(k,cls)=>`<td><span class="tstep ${cls}"><button data-id="${t.id}" data-k="${k}" data-d="-1">−</button><span class="val">${s[k]}</span><button data-id="${t.id}" data-k="${k}" data-d="1">+</button></span></td>`;
@@ -527,12 +524,6 @@ function renderTeams(){
       ${cell("gf","gf")}${cell("ga","ga")}${cell("yc","yc")}${cell("rc","rc")}
     </tr>`;}).join("");
   v.innerHTML=`<table class="teamtable">${head}<tbody>${body}</tbody></table>`;
-  v.querySelectorAll("th").forEach(th=>th.onclick=()=>{
-    const k=th.dataset.s;
-    if(teamSort.key===k)teamSort.dir*=-1;
-    else teamSort={key:k,dir:(k==="name")?1:-1};
-    renderTeams();
-  });
   v.querySelectorAll(".tstep button").forEach(b=>b.onclick=(e)=>{
     e.stopPropagation();
     step(b.dataset.id,b.dataset.k,parseInt(b.dataset.d,10));
