@@ -387,7 +387,7 @@ try{
   if(window.firebase && firebaseConfig.apiKey && firebaseConfig.apiKey!=="PASTE_YOUR_API_KEY"){
     firebase.initializeApp(firebaseConfig);
     fb=firebase;
-    boardRef=fb.database(firebaseConfig.databaseURL).ref("sweepstake/board");
+    boardRef=fb.database().ref("sweepstake/board");
   }
 }catch(e){console.warn("Firebase init failed — running in local mode",e);}
 
