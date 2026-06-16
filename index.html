@@ -17,10 +17,10 @@
     --line-strong:rgba(233,242,236,0.18);
     --text:#EAF2EC;
     --muted:#8FA89A;
-    --gf:#34D399;   /* goals scored  */
-    --ga:#38BDF8;   /* goals conceded */
-    --yc:#FACC15;   /* yellow cards  */
-    --rc:#F43F5E;   /* red cards     */
+    --gf:#34D399;
+    --ga:#38BDF8;
+    --yc:#FACC15;
+    --rc:#F43F5E;
     --shadow:0 10px 30px rgba(0,0,0,.45);
   }
   *{box-sizing:border-box}
@@ -35,7 +35,6 @@
   }
   .wrap{max-width:760px;margin:0 auto;padding:0 14px}
 
-  /* ---------- Masthead ---------- */
   header.mast{
     position:relative;
     overflow:hidden;
@@ -71,7 +70,6 @@
     box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:pulse 1.8s infinite}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.5)}70%{box-shadow:0 0 0 8px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
 
-  /* ---------- LED scoreboard strip ---------- */
   .led{
     display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
     margin-top:16px;
@@ -87,7 +85,6 @@
   .led .lbl{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:5px}
   .c-gf{color:var(--gf)} .c-ga{color:var(--ga)} .c-yc{color:var(--yc)} .c-rc{color:var(--rc)}
 
-  /* ---------- Toolbar ---------- */
   .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:18px 0 6px}
   .tabs{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:3px}
   .tab{
@@ -114,7 +111,6 @@
   .chip.active{border-color:transparent;background:var(--raised);color:var(--text)}
   .chip .sw{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:middle}
 
-  /* ---------- Player card ---------- */
   .card{
     background:var(--surface);border:1px solid var(--line);
     border-radius:16px;margin-bottom:11px;overflow:hidden;box-shadow:var(--shadow);
@@ -136,11 +132,11 @@
   .crown{font-size:12px}
   .pstats{display:flex;gap:6px;flex:0 0 auto}
   .stat{
-    min-width:40px;text-align:center;border-radius:9px;padding:4px 6px;
+    min-width:52px;text-align:center;border-radius:9px;padding:5px 8px;
     background:var(--surface-2);
   }
-  .stat .v{font-weight:800;font-size:15px;font-variant-numeric:tabular-nums;line-height:1.1}
-  .stat .k{font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:1px}
+  .stat .v{font-weight:800;font-size:19px;font-variant-numeric:tabular-nums;line-height:1.1}
+  .stat .k{font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:2px}
   .stat.gf .v{color:var(--gf)} .stat.ga .v{color:var(--ga)} .stat.yc .v{color:var(--yc)} .stat.rc .v{color:var(--rc)}
   .chev{flex:0 0 auto;color:var(--muted);transition:transform .2s;font-size:13px;width:14px;text-align:center}
   .card.open .chev{transform:rotate(90deg)}
@@ -156,26 +152,25 @@
   .tier{font-size:10.5px;color:var(--muted);margin-top:1px}
   .tier b{color:var(--text);font-weight:700}
 
-  .steppers{display:grid;grid-template-columns:repeat(4,auto);gap:6px;flex:0 0 auto}
+  .steppers{display:flex;gap:6px;flex:0 0 auto}
   .step{display:flex;flex-direction:column;align-items:center;gap:3px}
   .step .lab{font-size:8px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
   .step .ctl{display:flex;align-items:center;background:var(--surface-2);border-radius:9px;border:1px solid var(--line)}
   .step button{
     appearance:none;border:0;background:transparent;color:var(--text);
-    width:24px;height:30px;font-size:16px;line-height:1;cursor:pointer;font-family:inherit;
+    width:26px;height:30px;font-size:16px;line-height:1;cursor:pointer;font-family:inherit;
   }
   .step button:active{background:var(--raised)}
-  .step .val{min-width:20px;text-align:center;font-weight:800;font-size:14px;font-variant-numeric:tabular-nums}
+  .step .val{min-width:22px;text-align:center;font-weight:800;font-size:14px;font-variant-numeric:tabular-nums}
   .step.gf .val{color:var(--gf)} .step.ga .val{color:var(--ga)} .step.yc .val{color:var(--yc)} .step.rc .val{color:var(--rc)}
   .step.gf .ctl{border-color:rgba(52,211,153,.3)} .step.ga .ctl{border-color:rgba(56,189,248,.3)}
   .step.yc .ctl{border-color:rgba(250,204,21,.3)} .step.rc .ctl{border-color:rgba(244,63,94,.3)}
 
-  /* ---------- Teams table ---------- */
   table{width:100%;border-collapse:collapse;font-size:13.5px}
   thead th{
     text-align:right;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
     color:var(--muted);font-weight:700;padding:9px 7px;border-bottom:1px solid var(--line-strong);
-    cursor:pointer;white-space:nowrap;
+    white-space:nowrap;
   }
   thead th.l{text-align:left}
   tbody td{padding:10px 7px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums}
@@ -184,8 +179,6 @@
   .tdteam .flag{font-size:19px;width:auto}
   .tag{display:inline-block;font-size:9.5px;color:var(--muted);background:var(--surface-2);
     border:1px solid var(--line);border-radius:6px;padding:2px 6px;margin-left:2px}
-  .v-gf{color:var(--gf);font-weight:700} .v-ga{color:var(--ga);font-weight:700}
-  .v-yc{color:var(--yc);font-weight:700} .v-rc{color:var(--rc);font-weight:700}
   .owner{font-size:11px;color:var(--muted)}
   .tstep{display:inline-flex;align-items:center;background:var(--surface-2);border:1px solid var(--line);border-radius:7px}
   .tstep button{appearance:none;border:0;background:transparent;color:var(--text);width:18px;height:28px;font-size:14px;line-height:1;cursor:pointer;font-family:inherit}
@@ -198,11 +191,9 @@
   .teamtable th{padding:9px 3px}
   .teamtable td.l, .teamtable th.l{padding-left:7px}
 
-  /* ---------- Footer / note ---------- */
   .note{font-size:11.5px;color:var(--muted);text-align:center;margin:22px 0 8px;line-height:1.6}
   .note b{color:var(--text)}
 
-  /* ---------- Modal ---------- */
   .overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:18px;z-index:50}
   .overlay.show{display:flex}
   .modal{background:var(--surface-2);border:1px solid var(--line-strong);border-radius:16px;width:100%;max-width:520px;padding:16px}
@@ -222,9 +213,7 @@
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
   @media (max-width:480px){
-    .pstats .stat{min-width:34px}
-    .steppers{grid-template-columns:repeat(4,auto);gap:4px}
-    .step button{width:21px}
+    .pstats .stat{min-width:46px}
     .flag{font-size:21px}
   }
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -285,7 +274,12 @@
 
 <script>
 const TIERS={1:"Elite",2:"Contenders",3:"Dark Horses A",4:"Dark Horses B",5:"Outsiders A",6:"Outsiders B",7:"Long Shots A",8:"Long Shots B"};
-const KEYS=[["gf","Goals scored","GF","var(--gf)"],["ga","Conceded","GA","var(--ga)"],["yc","Yellows","YC","var(--yc)"],["rc","Reds","RC","var(--rc)"]];
+/* The three leaderboard views. dirty = yellows*1 + reds*2 */
+const METRICS=[
+  ["gf","Goals scored","GF","var(--gf)"],
+  ["ga","Conceded","GA","var(--ga)"],
+  ["dirty","Dirty Bastards","DIRTY","var(--rc)"]
+];
 
 const PLAYERS=[
   {name:"John Mac",teams:[
@@ -354,10 +348,9 @@ const PLAYERS=[
 const TEAM_OWNER={}; PLAYERS.forEach(p=>p.teams.forEach(t=>TEAM_OWNER[t.id]=p.name));
 const ALL_TEAMS=PLAYERS.flatMap(p=>p.teams);
 
-let stats={};            // id -> {gf,ga,yc,rc}
+let stats={};
 let view="players";
 let playerSort="gf";
-let teamSort={key:"gf",dir:-1};
 let openSet=new Set();
 const STORAGE_KEY="wc2026-sweepstake-v4";
 /* Results loaded through games of Sun 14 Jun 2026 (12 matches played). gf,ga,yc,rc */
@@ -377,10 +370,8 @@ const SEED={
   paraguay:{gf:1,ga:4,yc:5,rc:0},
   ivorycoast:{gf:1,ga:0,yc:3,rc:0},    ecuador:{gf:0,ga:1,yc:1,rc:0}
 };
-/* ===== Firebase shared backend =====
-   1. Create a free project at https://console.firebase.google.com
-   2. Build > Realtime Database > Create database (start in TEST mode)
-   3. Project settings > "Your apps" > add a Web app > copy the config into the object below */
+
+/* ---------- Firebase shared backend ---------- */
 const firebaseConfig = {
   apiKey: "AIzaSyA7yj1CV7pKR8unje2Gr5lXz7CZIvl7Fmw",
   authDomain: "world-cup-2026-sweepstak-d24c5.firebaseapp.com",
@@ -406,7 +397,6 @@ function seeded(){const o=blank();Object.keys(SEED).forEach(id=>{if(o[id])o[id]=
 function load(){
   stats=seeded();
   if(boardRef){
-    // live: any change from anyone repaints every open screen
     boardRef.on("value",snap=>{
       const v=snap.val();
       if(v&&v.stats){
@@ -416,10 +406,9 @@ function load(){
       }
       render();
     });
-    // seed the shared board once, only if it's still empty
     boardRef.get().then(snap=>{if(!snap.exists())boardRef.set({stats:seeded(),updated:Date.now()});}).catch(()=>{});
   }else{
-    render(); // no backend configured -> local preview only
+    render();
   }
 }
 function save(){
@@ -430,6 +419,9 @@ function save(){
 
 function totals(team){return stats[team.id]||{gf:0,ga:0,yc:0,rc:0};}
 function playerTotals(p){const o={gf:0,ga:0,yc:0,rc:0};p.teams.forEach(t=>{const s=totals(t);o.gf+=s.gf;o.ga+=s.ga;o.yc+=s.yc;o.rc+=s.rc;});return o;}
+/* Dirty Bastards score: yellow = 1, red = 2 */
+function dirty(s){return s.yc + 2*s.rc;}
+function metricVal(s,key){return key==="dirty" ? dirty(s) : s[key];}
 
 function paintLed(){
   const g={gf:0,ga:0,yc:0,rc:0};
@@ -446,22 +438,20 @@ function paintUpdated(){
   el.textContent="Updated "+d.toLocaleDateString(undefined,{day:"numeric",month:"short"})+" "+d.toLocaleTimeString(undefined,{hour:"2-digit",minute:"2-digit"});
 }
 
-/* ---------- Sort bar ---------- */
+/* ---------- View selector ---------- */
 function renderSortbar(){
   const bar=document.getElementById("sortbar");
   if(view==="teams"){bar.innerHTML="";bar.style.display="none";return;}
   bar.style.display="flex";
-  bar.innerHTML='<span style="font-size:12px;color:var(--muted);align-self:center;margin-right:2px">Rank by</span>'+
-    KEYS.map(([k,label,,col])=>`<button class="chip ${playerSort===k?'active':''}" data-sort="${k}"><span class="sw" style="background:${col}"></span>${label}</button>`).join("");
+  bar.innerHTML='<span style="font-size:12px;color:var(--muted);align-self:center;margin-right:2px">View</span>'+
+    METRICS.map(([k,label,,col])=>`<button class="chip ${playerSort===k?'active':''}" data-sort="${k}"><span class="sw" style="background:${col}"></span>${label}</button>`).join("");
   bar.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{playerSort=c.dataset.sort;render();});
 }
 
 /* ---------- Players view ---------- */
 function sortedPlayers(){
   return [...PLAYERS].map(p=>({p,t:playerTotals(p)})).sort((a,b)=>{
-    if(playerSort==="ga"||playerSort==="rc"||playerSort==="yc"){ // fewer is "better"? keep descending so most appears top; conceded most at top is interesting
-    }
-    const diff=b.t[playerSort]-a.t[playerSort];
+    const diff=metricVal(b.t,playerSort)-metricVal(a.t,playerSort);
     if(diff)return diff;
     return b.t.gf-a.t.gf || a.p.name.localeCompare(b.p.name);
   });
@@ -469,29 +459,35 @@ function sortedPlayers(){
 function renderPlayers(){
   const v=document.getElementById("view");
   const rows=sortedPlayers();
+  const metric=METRICS.find(m=>m[0]===playerSort);
+  const cls=playerSort==="gf"?"gf":playerSort==="ga"?"ga":"rc";
   v.innerHTML=rows.map(({p,t},i)=>{
     const open=openSet.has(p.name);
-    const stat=(k,cls)=>`<div class="stat ${cls}"><div class="v">${t[k]}</div><div class="k">${k.toUpperCase()}</div></div>`;
+    const statBox=`<div class="pstats"><div class="stat ${cls}"><div class="v">${metricVal(t,playerSort)}</div><div class="k">${metric[2]}</div></div></div>`;
     const teamsHtml=p.teams.map(tm=>{
       const s=totals(tm);
-      const step=(k,cls)=>`<div class="step ${cls}"><span class="lab">${k.toUpperCase()}</span>
+      const step=(k,c)=>`<div class="step ${c}"><span class="lab">${k.toUpperCase()}</span>
         <div class="ctl">
           <button data-id="${tm.id}" data-k="${k}" data-d="-1">−</button>
           <span class="val">${s[k]}</span>
           <button data-id="${tm.id}" data-k="${k}" data-d="1">+</button>
         </div></div>`;
+      let steppers;
+      if(playerSort==="gf")steppers=step("gf","gf");
+      else if(playerSort==="ga")steppers=step("ga","ga");
+      else steppers=step("yc","yc")+step("rc","rc");
       return `<div class="trow">
         <div class="flag">${tm.flag}</div>
         <div class="tinfo"><div class="tname">${tm.name}${tm.crown?' <span class="crown" title="Golden Team captain">👑</span>':''}</div>
           <div class="tier">Tier ${tm.tier} · <b>${TIERS[tm.tier]}</b></div></div>
-        <div class="steppers">${step("gf","gf")}${step("ga","ga")}${step("yc","yc")}${step("rc","rc")}</div>
+        <div class="steppers">${steppers}</div>
       </div>`;
     }).join("");
     return `<div class="card ${open?'open':''}" data-player="${p.name}">
       <div class="phead">
         <div class="rank ${i===0?'top':''}">${i+1}</div>
         <div class="pname">${p.name}${p.golden?' <span class="gtag">👑 Golden Squad</span>':''}</div>
-        <div class="pstats">${stat("gf","gf")}${stat("ga","ga")}${stat("yc","yc")}${stat("rc","rc")}</div>
+        ${statBox}
         <div class="chev">▶</div>
       </div>
       <div class="teams">${teamsHtml}</div>
@@ -509,7 +505,7 @@ function renderPlayers(){
   });
 }
 
-/* ---------- Teams view ---------- */
+/* ---------- Teams view (alphabetical, fixed order) ---------- */
 function renderTeams(){
   const v=document.getElementById("view");
   const arr=[...ALL_TEAMS].sort((a,b)=>a.name.localeCompare(b.name));
@@ -533,7 +529,6 @@ function renderTeams(){
 function step(id,k,d){
   if(!stats[id])stats[id]={gf:0,ga:0,yc:0,rc:0};
   stats[id][k]=Math.max(0,(stats[id][k]||0)+d);
-  // update just the affected number nodes without full re-render to keep scroll/focus
   render();
   save();
 }
@@ -547,6 +542,7 @@ function render(){
   document.getElementById("footnote").innerHTML =
     'Results loaded through games of <b>Sun 14 Jun</b> (12 matches). Teams yet to play sit on zero. '+
     'Log goals and cards from either tab — expand a player, or edit teams directly on the All teams tab. Changes save automatically and sync to everyone. '+
+    ((view==="players"&&playerSort==="dirty") ? '<br><b>Dirty Bastards</b> = 🟨×1 + 🟥×2. If a second yellow becomes a red, log only the red (worth 2), not the two yellows. ' : '')+
     (boardRef?'':'<b>⚠ Add your Firebase config to enable shared live syncing — until then this is a local preview only.</b>');
 }
 
@@ -554,13 +550,16 @@ function render(){
 function buildSummary(){
   const d=new Date();
   const rows=sortedPlayers();
-  let out="🏆 World Cup 2026 Sweepstake\n"+d.toLocaleDateString(undefined,{weekday:"short",day:"numeric",month:"short"})+
-    " · ranked by "+KEYS.find(x=>x[0]===playerSort)[1].toLowerCase()+"\n\n";
+  const metric=METRICS.find(m=>m[0]===playerSort);
+  let out="🏆 World Cup 2026 Sweepstake\n"+
+    d.toLocaleDateString(undefined,{weekday:"short",day:"numeric",month:"short"})+
+    " · ranked by "+metric[1].toLowerCase()+"\n"+
+    "⚽ scored · 🥅 conceded · 😈 dirty (🟨1/🟥2)\n\n";
   rows.forEach(({p,t},i)=>{
-    out+=`${i+1}. ${p.name} — ⚽${t.gf} scored · 🥅${t.ga} conceded · 🟨${t.yc} · 🟥${t.rc}\n`;
+    out+=`${i+1}. ${p.name} — ⚽${t.gf} · 🥅${t.ga} · 😈${dirty(t)}\n`;
   });
   const g={gf:0,ga:0,yc:0,rc:0};ALL_TEAMS.forEach(tm=>{const s=totals(tm);g.gf+=s.gf;g.ga+=s.ga;g.yc+=s.yc;g.rc+=s.rc;});
-  out+=`\nTournament totals: ⚽${g.gf} · 🟨${g.yc} · 🟥${g.rc}`;
+  out+=`\nTournament totals: ⚽${g.gf} · 🥅${g.ga} · 😈${dirty(g)}`;
   return out;
 }
 function showToast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1600);}
