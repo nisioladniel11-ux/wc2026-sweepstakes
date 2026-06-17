@@ -450,8 +450,10 @@ function renderSortbar(){
 
 /* ---------- Players view ---------- */
 function sortedPlayers(){
+  const lowBest = playerSort==="ga"; // fewest conceded ranks first
   return [...PLAYERS].map(p=>({p,t:playerTotals(p)})).sort((a,b)=>{
-    const diff=metricVal(b.t,playerSort)-metricVal(a.t,playerSort);
+    const av=metricVal(a.t,playerSort), bv=metricVal(b.t,playerSort);
+    const diff = lowBest ? (av-bv) : (bv-av);
     if(diff)return diff;
     return b.t.gf-a.t.gf || a.p.name.localeCompare(b.p.name);
   });
