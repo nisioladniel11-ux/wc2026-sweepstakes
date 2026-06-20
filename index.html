@@ -553,15 +553,16 @@ function buildSummary(){
   const d=new Date();
   const rows=sortedPlayers();
   const metric=METRICS.find(m=>m[0]===playerSort);
+  const emoji=playerSort==="gf"?"⚽":playerSort==="ga"?"🥅":"😈";
+  const titleBit=playerSort==="ga"?"fewest conceded first":playerSort==="dirty"?"🟨1 / 🟥2":"most scored first";
   let out="🏆 World Cup 2026 Sweepstake\n"+
-    d.toLocaleDateString(undefined,{weekday:"short",day:"numeric",month:"short"})+
-    " · ranked by "+metric[1].toLowerCase()+"\n"+
-    "⚽ scored · 🥅 conceded · 😈 dirty (🟨1/🟥2)\n\n";
+    metric[1]+" — "+d.toLocaleDateString(undefined,{weekday:"short",day:"numeric",month:"short"})+
+    "\n("+titleBit+")\n\n";
   rows.forEach(({p,t},i)=>{
-    out+=`${i+1}. ${p.name} — ⚽${t.gf} · 🥅${t.ga} · 😈${dirty(t)}\n`;
+    out+=`${i+1}. ${p.name} — ${emoji} ${metricVal(t,playerSort)}\n`;
   });
   const g={gf:0,ga:0,yc:0,rc:0};ALL_TEAMS.forEach(tm=>{const s=totals(tm);g.gf+=s.gf;g.ga+=s.ga;g.yc+=s.yc;g.rc+=s.rc;});
-  out+=`\nTournament totals: ⚽${g.gf} · 🥅${g.ga} · 😈${dirty(g)}`;
+  out+=`\nTournament total: ${emoji} ${metricVal(g,playerSort)}`;
   return out;
 }
 function showToast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1600);}
